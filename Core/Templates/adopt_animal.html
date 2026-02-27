@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Adopt {{ animal.name }} - Pet Care{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-lg border-0">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="{{ animal.image.url }}" class="img-fluid rounded-start" alt="{{ animal.name }}" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body p-4">
+                            <h2 class="card-title">{{ animal.name }}</h2>
+                            <p class="text-muted"><i class="fas fa-tag"></i> {{ animal.get_species_display }} | {{ animal.age }} | {{ animal.get_gender_display }}</p>
+                            {% if animal.breed %}<p><strong>Breed:</strong> {{ animal.breed }}</p>{% endif %}
+                            <p class="card-text">{{ animal.description }}</p>
+                            <h4 class="text-primary">Adoption Fee: ${{ animal.adoption_fee }}</h4>
+                            <hr>
+                            <h5>Submit Adoption Request</h5>
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    <div class="mb-3">
+                                        {{ field.label_tag }}
+                                        {{ field }}
+                                        {% for error in field.errors %}
+                                            <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-heart"></i> Submit Adoption Request
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

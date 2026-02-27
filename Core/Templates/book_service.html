@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Book {{ plan.name }} - Pet Care{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h2>Book {{ plan.name }}</h2>
+                    <p class="mb-0">{{ plan.get_plan_type_display }} - ${{ plan.price }}</p>
+                </div>
+                <div class="card-body p-5">
+                    <div class="alert alert-info">
+                        <h5>Plan Details:</h5>
+                        <p>{{ plan.description }}</p>
+                        <p><strong>Duration:</strong> {{ plan.duration_hours }} hours</p>
+                        <p><strong>Features:</strong></p>
+                        <ul>
+                            {% for feature in plan.features_list %}
+    <li>{{ feature }}</li>
+{% endfor %}
+
+                        </ul>
+                    </div>
+                    
+                    <h4 class="mb-4">Booking Information</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% for error in field.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        
+                        <hr class="my-4">
+                        
+                        <h4 class="mb-4">Payment (Demo)</h4>
+                        <div class="alert alert-warning">
+                            <i class="fas fa-info-circle"></i> This is a demo payment interface. No real payment is processed.
+                        </div>
+                        
+                        <div class="card bg-light p-4 mb-4">
+                            <h5>Payment Summary</h5>
+                            <div class="d-flex justify-content-between">
+                                <span>Service Plan:</span>
+                                <strong>{{ plan.name }}</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Duration:</span>
+                                <strong>{{ plan.duration_hours }} hours</strong>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span class="h5">Total:</span>
+                                <strong class="h5 text-primary">${{ plan.price }}</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-check-circle"></i> Complete Booking & Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

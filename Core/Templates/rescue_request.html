@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Rescue Request - Pet Care{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h2><i class="fas fa-ambulance"></i> Submit Rescue Request</h2>
+                    <p class="mb-0">Help us save an animal in need</p>
+                </div>
+                <div class="card-body p-5">
+                    <div class="alert alert-info">
+                        <strong>How Pet Care Rescues Animals:</strong>
+                        <ol>
+                            <li>You submit a rescue request with details</li>
+                            <li>Our team reviews and approves the request</li>
+                            <li>Rescue team dispatches to the location</li>
+                            <li>Animal receives immediate medical attention</li>
+                            <li>Pet is brought to our shelter for care</li>
+                            <li>After recovery, pet is made available for adoption</li>
+                        </ol>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% for error in field.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Rescue Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.querySelector('input[type="date"]');
+    const timeInput = document.querySelector('input[type="time"]');
+    const locationInput = document.getElementById('location-input') || document.getElementById('id_location') || document.querySelector('input[name="location"]');
+    
+    if (dateInput && !dateInput.value) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+    }
+    
+    if (timeInput && !timeInput.value) {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        timeInput.value = `${hours}:${minutes}`;
+    }
+    
+    if (locationInput && navigator.geolocation) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-sm btn-outline-primary mt-2 d-block';
+        btn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Auto-detect Location';
+        btn.onclick = function() {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Getting location...';
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    locationInput.value = `Lat: ${position.coords.latitude.toFixed(6)}, Long: ${position.coords.longitude.toFixed(6)}`;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Location detected';
+                },
+                function(error) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Auto-detect Location';
+                    alert('Could not get location: ' + error.message);
+                }
+            );
+        };
+        locationInput.insertAdjacentElement('afterend', btn);
+    }
+});
+</script>
+{% endblock %}

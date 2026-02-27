@@ -1,0 +1,228 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-white">
+                <h1 class="display-3 fw-bold mb-4 fade-in">Saving Lives, One Paw at a Time</h1>
+                <p class="lead mb-4 fade-in-delay">We rescue abandoned animals and give them a second chance at life. Join us in making a difference.</p>
+                <div class="fade-in-delay-2">
+                    <a href="{% url 'adoptions' %}" class="btn btn-primary btn-lg me-3"><i class="fas fa-heart"></i> Adopt Now</a>
+                    <a href="{% url 'rescue_request' %}" class="btn btn-outline-light btn-lg"><i class="fas fa-hands-helping"></i> Report Rescue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Our Mission</h2>
+            <p class="lead text-muted">Providing hope, care, and love to every animal in need</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center service-card">
+                <div class="icon-box mb-3">
+                    <i class="fas fa-ambulance fa-3x text-primary"></i>
+                </div>
+                <h4>Rescue Operations</h4>
+                <p>We respond to calls and rescue animals from dangerous situations, providing immediate medical care.</p>
+            </div>
+            <div class="col-md-4 text-center service-card">
+                <div class="icon-box mb-3">
+                    <i class="fas fa-home fa-3x text-primary"></i>
+                </div>
+                <h4>Shelter & Care</h4>
+                <p>Our facility provides safe shelter, food, grooming, and medical treatment for rescued animals.</p>
+            </div>
+            <div class="col-md-4 text-center service-card">
+                <div class="icon-box mb-3">
+                    <i class="fas fa-heart fa-3x text-primary"></i>
+                </div>
+                <h4>Adoption Services</h4>
+                <p>We match loving families with pets, ensuring every animal finds their forever home.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Our Services</h2>
+            <p class="lead text-muted">Comprehensive pet care solutions</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 service-item">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-stethoscope fa-3x text-primary mb-3"></i>
+                        <h5>Medical Care</h5>
+                        <p>Veterinary services and health checkups</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 service-item">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-cut fa-3x text-primary mb-3"></i>
+                        <h5>Grooming</h5>
+                        <p>Professional grooming services</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 service-item">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-hotel fa-3x text-primary mb-3"></i>
+                        <h5>Pet Boarding</h5>
+                        <p>Safe and comfortable stay options</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 service-item">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shopping-bag fa-3x text-primary mb-3"></i>
+                        <h5>Pet Products</h5>
+                        <p>Food, toys, and accessories</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-6 fw-bold">Our Achievements</h2>
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="achievement-box">
+                            <h3 class="display-4 fw-bold">500+</h3>
+                            <p>Animals Rescued</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="achievement-box">
+                            <h3 class="display-4 fw-bold">350+</h3>
+                            <p>Successful Adoptions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="achievement-box">
+                            <h3 class="display-4 fw-bold">24/7</h3>
+                            <p>Emergency Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Meet Our Team</h2>
+            <p class="lead text-muted">Dedicated professionals who love animals</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 team-member">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="fas fa-user-md fa-4x text-primary"></i>
+                        </div>
+                        <h5>Dr. Sarah Johnson</h5>
+                        <p class="text-muted">Chief Veterinarian</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 team-member">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="fas fa-user fa-4x text-primary"></i>
+                        </div>
+                        <h5>Michael Chen</h5>
+                        <p class="text-muted">Rescue Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 team-member">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="fas fa-user fa-4x text-primary"></i>
+                        </div>
+                        <h5>Emily Rodriguez</h5>
+                        <p class="text-muted">Adoption Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">What People Say</h2>
+            <p class="lead text-muted">Testimonials from our community</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Pet Care rescued my dog from the streets. They provided excellent care and now he's healthy and happy!"</p>
+                        <footer class="blockquote-footer">Jennifer Smith</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"I adopted a beautiful cat through Pet Care. The staff was amazing and helped me through the entire process."</p>
+                        <footer class="blockquote-footer">David Williams</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Their boarding services are excellent! My pets are always happy and well-cared for when I travel."</p>
+                        <footer class="blockquote-footer">Lisa Anderson</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

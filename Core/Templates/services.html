@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Pet Care Services - Pet Care{% endblock %}
+
+{% block content %}
+<div class="page-header bg-primary text-white text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-4"><i class="fas fa-concierge-bell"></i> Our Services</h1>
+        <p class="lead">Professional care for your beloved pets</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    {% if plans %}
+        <div class="row g-4">
+            {% for plan in plans %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-lg plan-card">
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <h3>{{ plan.name }}</h3>
+                        <p class="mb-0">{{ plan.get_plan_type_display }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <h2 class="text-primary">${{ plan.price }}</h2>
+                            <p class="text-muted">{{ plan.duration_hours }} hours</p>
+                        </div>
+                        <p>{{ plan.description }}</p>
+
+                                    <ul class="list-unstyled">
+    {% for feature in plan.features_list %}
+        <li><i class="fas fa-check text-success"></i> {{ feature }}</li>
+    {% endfor %}
+</ul>
+
+
+                    </div>
+
+                    <div class="card-footer bg-transparent">
+                        <a href="{% url 'book_service' plan.id %}" class="btn btn-primary w-100">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            <h4>No service plans available</h4>
+            <p>Contact us for custom service options.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
