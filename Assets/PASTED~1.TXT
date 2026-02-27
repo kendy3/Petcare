@@ -1,0 +1,325 @@
+1. Startup Concept
+
+The startup idea is an organization named Pet Care, whose main objective is to help and rescue unclaimed and abandoned street animals. The organization provides food, shelter, medical care, grooming, and adoption facilities to rescued animals.
+
+2. Problem & Solution
+Problem
+
+There are many unclaimed animals on the streets with:
+
+No food
+
+No shelter
+
+No care
+
+No medical assistance
+
+Solution
+
+Pet Care will:
+
+Rescue unclaimed animals
+
+Bring them to the Pet Care shelter
+
+Provide medical support, food, and grooming
+
+Keep them in the facility
+
+Make them available for adoption
+
+Provide paid services for domestic pet owners
+
+3. Features of the Platform
+
+The platform will allow:
+
+Posting rescue requests (only for logged-in users)
+
+Selling rescued animals to people who want to adopt them
+
+Selling pet-related products (food, shelter items, clothes, toys)
+
+Paid pet-care services such as:
+
+Pet feeding
+
+Grooming
+
+Short-term or long-term stay
+
+Booking system for pet-care appointments
+
+Online payment option (dummy — no real API key needed)
+
+4. Revenue Model
+
+The startup will generate income by:
+
+Selling adopted pets to people who want to take care of them
+
+Selling pet-care products (food, toys, clothes, shelter items, etc.)
+
+Paid pet-care services where users can book:
+
+Pet feeding packages
+
+Grooming packages
+
+Hourly care packages
+
+Full-day care plans
+
+5. Frontend Requirements (HTML, CSS, JS Only)
+A. Home Page
+
+A clean, attractive, animation-rich design
+
+A header with:
+
+Opening & working hours
+
+Contact email
+
+Contact number
+
+A section explaining the mission of the organization
+
+A Rescue Request Form section (but only visible after login)
+
+Sections for:
+
+Services we provide
+
+Achievements
+
+Our team
+
+Testimonials (optional)
+
+B. Rescue Request Page
+
+This page must contain:
+
+i. Rescue Request Form
+
+Fields:
+
+Name
+
+Phone number
+
+Date
+
+Time
+
+Pet image upload
+
+Type of animal
+
+Description of issue
+
+Location field
+
+Auto-fetch option for real-time date, time, and location (if possible)
+
+ii. Rules
+
+Only logged-in users can submit the form
+
+After form submission, the user must receive a confirmation email
+
+Show section describing how Pet Care rescues and cares for animals
+
+C. Login & Signup Pages
+
+Create professional, secure, and standard login/signup pages with:
+
+Email
+
+Password
+
+Confirm password (signup)
+
+Username
+
+Phone number
+
+Proper validations
+
+Error handling
+
+Forgot password option (optional but preferred)
+
+D. Services Page
+
+Show different pet care plans such as:
+
+Low-hour plan (low cost)
+
+Medium-hour plan
+
+High-hour plan (high cost with full care)
+
+When a user selects a plan:
+
+Show a Booking Form
+
+Name
+
+Type of animal
+
+Selected plan
+
+Show a dummy Online Payment Section (no real key needed)
+
+E. Products Page
+
+Display product cards (pet food, toys, clothes, accessories, shelters)
+
+Each product has a "Buy Now" button
+
+Clicking it redirects to a “Thank you for purchase” page
+
+F. About Page
+
+Information about the Pet Care organization
+
+Mission, team details, contact information
+
+6. Backend Requirements (Django)
+
+Build the backend using Django framework, with the following backend functionalities:
+
+A. Authentication System
+
+Fully functional login & signup
+
+Secure password hashing
+
+Session management
+
+Only logged-in users allowed to:
+
+Post rescue requests
+
+Make bookings
+
+Purchase products
+
+B. Database Models
+
+Create models for:
+
+Users
+
+Rescue Requests
+
+Adoptable Animals
+
+Products
+
+Care Services / Plans
+
+Bookings
+
+Order History
+
+C. Form Handling
+
+Store all the form data in the Django database:
+
+Rescue request submissions
+
+Booking forms
+
+Adoption requests
+
+Products bought
+
+User registrations
+
+D. Email Functionality
+
+After a rescue request is submitted:
+
+Send a confirmation mail to the user
+
+E. Admin Panel
+
+Allow admin to:
+
+Approve rescue requests
+
+Add adoptable animals
+
+Add products
+
+Manage bookings
+
+View sales
+
+Add/update pet care plans
+
+F. API Endpoints (If needed)
+
+Rescue request submission
+
+Booking submission
+
+Product purchase
+
+Login/Signup
+
+G. Media File Handling
+
+Handle uploaded pet images using Django’s media folder.
+
+7. Design Requirements
+
+Make the frontend beautiful, modern, and attractive
+
+Use smooth CSS animations
+
+Make UI clean, light, and user-friendly
+
+Maintain a consistent theme
+
+Use responsive design for mobile
+
+8. Output Required
+
+You must generate:
+
+Complete frontend code (HTML, CSS, JS)
+
+Complete Django backend code
+
+File structure
+
+All models, views, templates, URLs
+
+Database setup instructions
+
+Steps to run the website
+
+Any additional optimizations needed
+
+Your final output should deliver:
+
+A fully functional Pet Care Website with:
+
+Rescue request system
+
+Adoption listing
+
+Products page
+
+Services booking system
+
+Login/Signup
+
+Django backend
+
+Beautiful UI with animations
